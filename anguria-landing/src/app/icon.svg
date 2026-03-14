@@ -1,0 +1,20 @@
+<svg width="100%" height="100%" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .accent { fill: #F97316; }
+    .base { fill: #111111; }
+    @media (prefers-color-scheme: dark) {
+      .base { fill: #FFFFFF; }
+    }
+  </style>
+
+  <!-- Group centered in the SVG canvas -->
+  <g transform="translate(256, 260)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    
+    <!-- Forward Slash: elongated and lighter weight -->
+    <text class="accent" x="-90" y="25" font-size="480" font-weight="200" text-anchor="middle" dominant-baseline="middle">/</text>
+    
+    <!-- The "A": bold, heavy, simple, adaptable to dark/light mode -->
+    <text class="base" x="80" y="-10" font-size="340" font-weight="900" text-anchor="middle" dominant-baseline="middle" letter-spacing="-10">A</text>
+
+  </g>
+</svg>
