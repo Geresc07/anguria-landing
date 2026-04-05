@@ -1,11 +1,11 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 const TEAM = ["pol@anguria.tech", "gerard@anguria.tech", "oriol@anguria.tech"];
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const { name, email, message } = await req.json();
 
   if (!name || !email || !message) {
