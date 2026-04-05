@@ -75,13 +75,13 @@ export default function Home() {
 
   return (
     <main className="bg-background relative flex flex-col items-center overflow-hidden min-h-screen">
-      {/* Wave Background — Hero only (100vh) for perf */}
-      <div className="absolute top-0 left-0 w-full pointer-events-none z-0" style={{ height: '100vh' }}>
+      {/* Wave Background — Hero + Bento zone */}
+      <div className="absolute top-0 left-0 w-full pointer-events-none z-0" style={{ height: '220vh' }}>
         <Waves
           strokeColor="rgba(255,255,255,0.18)"
           backgroundColor="#000000"
         />
-        {/* Glow naranja — tamaños reducidos para perf */}
+        {/* Glow naranja */}
         <div className="absolute top-0 right-[-5%] w-[500px] h-[400px] bg-accent-orange/8 blur-[100px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
       </div>
