@@ -75,17 +75,14 @@ export default function Home() {
 
   return (
     <main className="bg-background relative flex flex-col items-center overflow-hidden min-h-screen">
-      {/* Wave Background — Hero + Bento zone */}
-      <div className="absolute top-0 left-0 w-full pointer-events-none z-0" style={{ height: '260vh' }}>
+      {/* Wave Background — Hero only (100vh) for perf */}
+      <div className="absolute top-0 left-0 w-full pointer-events-none z-0" style={{ height: '100vh' }}>
         <Waves
           strokeColor="rgba(255,255,255,0.18)"
           backgroundColor="#000000"
-          pointerSize={0.4}
         />
-        {/* Glow naranja */}
-        <div className="absolute top-0 right-[-10%] w-[800px] h-[500px] bg-accent-orange/8 blur-[140px] rounded-full pointer-events-none" />
-        <div className="absolute top-[40%] left-[-10%] w-[700px] h-[700px] bg-accent-orange-dark/6 blur-[180px] rounded-full pointer-events-none" />
-        {/* Fade al final */}
+        {/* Glow naranja — tamaños reducidos para perf */}
+        <div className="absolute top-0 right-[-5%] w-[500px] h-[400px] bg-accent-orange/8 blur-[100px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-background to-transparent pointer-events-none" />
       </div>
       
@@ -233,7 +230,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="md:col-span-7 h-[420px] group relative rounded-2xl overflow-hidden bg-black/70 backdrop-blur-sm border border-white/[0.06] hover:bg-accent-orange hover:border-transparent transition-all duration-300"
+              className="md:col-span-7 h-[420px] group relative rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/[0.06] hover:bg-accent-orange hover:border-transparent transition-all duration-300"
             >
               {/* Text content */}
               <div className="absolute left-0 top-0 bottom-0 w-[52%] p-8 flex flex-col justify-between relative z-20">
@@ -298,7 +295,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="md:col-span-5 h-[420px] group relative rounded-2xl overflow-hidden bg-black/70 backdrop-blur-sm border border-white/[0.06] hover:bg-accent-orange hover:border-transparent transition-all duration-300"
+              className="md:col-span-5 h-[420px] group relative rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/[0.06] hover:bg-accent-orange hover:border-transparent transition-all duration-300"
             >
               <div className="p-8 h-full flex flex-col justify-between relative z-10">
                 <div>
@@ -366,7 +363,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="h-[260px] group relative rounded-2xl overflow-hidden bg-black/70 backdrop-blur-sm border border-white/[0.06] hover:bg-accent-orange hover:border-transparent transition-all duration-300"
+            className="h-[260px] group relative rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/[0.06] hover:bg-accent-orange hover:border-transparent transition-all duration-300"
           >
             <div className="p-8 h-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
 
