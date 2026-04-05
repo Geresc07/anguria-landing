@@ -1,7 +1,6 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 
-
 const TEAM = ["pol@anguria.tech", "gerard@anguria.tech", "oriol@anguria.tech"];
 
 export async function POST(req: NextRequest) {
