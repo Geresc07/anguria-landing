@@ -228,13 +228,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
 
             {/* Card 1: Custom Solutions */}
-            <motion.a
-              href="/solutions"
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="md:col-span-7 h-[420px] group relative rounded-2xl overflow-hidden bg-black/70 backdrop-blur-sm border border-white/[0.06] hover:bg-accent-orange hover:border-transparent transition-all duration-300 cursor-pointer"
+              className="md:col-span-7 h-[420px] group relative rounded-2xl overflow-hidden bg-black/70 backdrop-blur-sm border border-white/[0.06] hover:bg-accent-orange hover:border-transparent transition-all duration-300"
             >
               {/* Text content */}
               <div className="absolute left-0 top-0 bottom-0 w-[52%] p-8 flex flex-col justify-between relative z-20">
@@ -249,7 +248,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-mono text-white/25 group-hover:text-black/60 transition-colors duration-300">
-                  <span>See case studies</span>
+                  <span>Start a Project</span>
                   <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
@@ -291,7 +290,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </motion.a>
+            </motion.div>
 
             {/* Card 2: Products */}
             <motion.div
