@@ -110,12 +110,12 @@ export function Waves({
       if (col.length < 2) continue
       ctx.beginPath()
       const p0 = col[0]
-      const n0 = noise(p0.x * 0.003 + t * 0.08, p0.y * 0.002 + t * 0.03) * 8
+      const n0 = noise(p0.x * 0.003 + t * 0.035, p0.y * 0.002 + t * 0.015) * 8
       ctx.moveTo(p0.x + Math.cos(n0) * 12, p0.y + Math.sin(n0) * 6)
 
       for (let j = 1; j < col.length; j++) {
         const p = col[j]
-        const n = noise(p.x * 0.003 + t * 0.08, p.y * 0.002 + t * 0.03) * 8
+        const n = noise(p.x * 0.003 + t * 0.035, p.y * 0.002 + t * 0.015) * 8
         ctx.lineTo(p.x + Math.cos(n) * 12, p.y + Math.sin(n) * 6)
       }
       ctx.stroke()
