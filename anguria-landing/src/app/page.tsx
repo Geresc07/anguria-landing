@@ -358,12 +358,13 @@ export default function Home() {
           </div>
 
           {/* Row 2: Open Source — Envy */}
-          <motion.div
+          <motion.a
+            href="/open-source"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="h-[260px] group relative rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/[0.06] hover:bg-accent-orange hover:border-transparent transition-all duration-300"
+            className="h-[260px] group relative rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/[0.06] hover:bg-accent-orange hover:border-transparent transition-all duration-300 cursor-pointer"
           >
             <div className="p-8 h-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
 
@@ -424,7 +425,7 @@ export default function Home() {
               </div>
 
             </div>
-          </motion.div>
+          </motion.a>
 
         </div>
       </section>
