@@ -198,8 +198,9 @@ export default function EnvyPage() {
         </div>
       </div>
 
+
       {/* Content */}
-      <div className="max-w-screen-xl mx-auto px-8 py-10">
+      <div className="max-w-screen-xl mx-auto px-8 pb-10">
         <div className="flex gap-10">
 
           {/* Main */}
@@ -208,28 +209,25 @@ export default function EnvyPage() {
             {activeTab === "Overview" && (
               <motion.div key="overview" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
 
-                {/* Demo GIF / terminal screenshots */}
-                <div className="flex gap-4 overflow-x-auto pb-4 mb-10 -mx-2 px-2">
-                  {/* Screen 1: Quickstart */}
-                  <div className="shrink-0 w-[420px] rounded-2xl bg-[#0d0d0d] border border-white/[0.07] p-5 flex flex-col gap-3">
+                {/* Terminal gallery */}
+                <div className="flex gap-3 mb-8 mt-6">
+                  <div className="flex-1 min-w-0 rounded-xl bg-[#0d0d0d] border border-white/[0.07] p-4 flex flex-col gap-2.5">
                     <p className="text-[10px] font-mono text-white/25 uppercase tracking-wider">Quickstart</p>
                     <TerminalBlock lines={[
                       { type: "cmd", text: "envy init" },
-                      { type: "success", text: "✓ Created envy.toml · project registered" },
+                      { type: "success", text: "✓ Initialized vault (local-first)" },
                       { type: "blank", text: "" },
                       { type: "cmd", text: "envy set DATABASE_URL=postgres://localhost/app" },
-                      { type: "success", text: "✓ Secret stored · 0 bytes sent to cloud" },
+                      { type: "success", text: "✓ DATABASE_URL stored" },
                       { type: "cmd", text: "envy set API_KEY=sk_live_abc123" },
-                      { type: "success", text: "✓ Secret stored · 0 bytes sent to cloud" },
+                      { type: "success", text: "✓ API_KEY stored" },
                       { type: "blank", text: "" },
                       { type: "cmd", text: "envy run -- npm run dev" },
-                      { type: "out", text: "↳ Injecting 2 secrets into process..." },
-                      { type: "success", text: "✓ Server running on http://localhost:3000" },
+                      { type: "out", text: "↳ Injecting 2 secrets..." },
+                      { type: "success", text: "✓ Server running on :3000" },
                     ]} />
                   </div>
-
-                  {/* Screen 2: GitOps */}
-                  <div className="shrink-0 w-[420px] rounded-2xl bg-[#0d0d0d] border border-white/[0.07] p-5 flex flex-col gap-3">
+                  <div className="flex-1 min-w-0 rounded-xl bg-[#0d0d0d] border border-white/[0.07] p-4 flex flex-col gap-2.5">
                     <p className="text-[10px] font-mono text-white/25 uppercase tracking-wider">GitOps workflow</p>
                     <TerminalBlock lines={[
                       { type: "cmd", text: "envy diff" },
@@ -239,15 +237,13 @@ export default function EnvyPage() {
                       { type: "blank", text: "" },
                       { type: "cmd", text: "envy encrypt" },
                       { type: "out", text: "Passphrase: ········" },
-                      { type: "success", text: "✓ Sealed → envy.enc (pure ciphertext)" },
+                      { type: "success", text: "✓ Sealed → envy.enc" },
                       { type: "blank", text: "" },
-                      { type: "cmd", text: "git add envy.enc envy.toml && git commit -m 'chore: secrets'" },
-                      { type: "success", text: "✓ Safe to push — zero plaintext in repo" },
+                      { type: "cmd", text: "git add envy.enc && git commit -m 'secrets'" },
+                      { type: "success", text: "✓ Safe to push publicly" },
                     ]} />
                   </div>
-
-                  {/* Screen 3: CI/CD */}
-                  <div className="shrink-0 w-[420px] rounded-2xl bg-[#0d0d0d] border border-white/[0.07] p-5 flex flex-col gap-3">
+                  <div className="flex-1 min-w-0 rounded-xl bg-[#0d0d0d] border border-white/[0.07] p-4 flex flex-col gap-2.5">
                     <p className="text-[10px] font-mono text-white/25 uppercase tracking-wider">CI/CD — GitHub Actions</p>
                     <TerminalBlock lines={[
                       { type: "cmd", text: "envy decrypt" },
@@ -257,7 +253,7 @@ export default function EnvyPage() {
                       { type: "cmd", text: "envy diff -e production" },
                       { type: "success", text: "✓ Artifact matches vault · exit 0" },
                       { type: "blank", text: "" },
-                      { type: "cmd", text: "envy run -e production -- ./scripts/deploy.sh" },
+                      { type: "cmd", text: "envy run -e production -- ./deploy.sh" },
                       { type: "success", text: "✓ Deploy complete" },
                     ]} />
                   </div>
@@ -321,47 +317,43 @@ export default function EnvyPage() {
           </div>
 
           {/* Sidebar */}
-          <div className="w-56 shrink-0 space-y-6">
+          <div className="w-56 shrink-0 self-start sticky top-8">
+            <div className="rounded-2xl border border-white/[0.07] bg-[#0d0d0d] overflow-hidden">
 
-            {/* GitHub CTA */}
-            <Link
-              href="https://github.com/anguriatech/envy"
-              target="_blank"
-              className="flex items-center justify-between w-full p-4 rounded-xl bg-[#0d0d0d] border border-white/[0.07] hover:border-accent-orange/25 hover:bg-accent-orange/5 transition-all duration-200 group"
-            >
-              <div className="flex items-center gap-3">
-                <Github className="w-4 h-4 text-white/40 group-hover:text-accent-orange transition-colors" />
-                <span className="text-sm font-medium text-white/40 group-hover:text-white transition-colors">anguriatech/envy</span>
-              </div>
-              <ExternalLink className="w-3 h-3 text-white/20 group-hover:text-accent-orange transition-colors" />
-            </Link>
-
-            <div className="h-px bg-white/[0.06]" />
-
-            {/* Details */}
-            <div className="space-y-3">
-              <div className="text-xs font-mono text-white/25 uppercase tracking-wider mb-3">Details</div>
-              {[
-                { label: "Language", value: "Rust 1.85+" },
-                { label: "License", value: "MIT" },
-                { label: "Encryption", value: "AES-256-GCM" },
-                { label: "KDF", value: "Argon2id" },
-                { label: "Storage", value: "SQLCipher" },
-                { label: "Status", value: "Active" },
-              ].map(({ label, value }) => (
-                <div key={label}>
-                  <div className="text-[10px] font-mono text-white/20 mb-0.5">{label}</div>
-                  <div className="text-sm text-white/50 font-medium">{value}</div>
+              {/* GitHub CTA */}
+              <Link
+                href="https://github.com/anguriatech/envy"
+                target="_blank"
+                className="flex items-center justify-between w-full p-4 border-b border-white/[0.06] hover:bg-accent-orange/5 transition-all duration-200 group"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Github className="w-4 h-4 text-white/40 group-hover:text-accent-orange transition-colors" />
+                  <span className="text-sm font-medium text-white/40 group-hover:text-white transition-colors">anguriatech/envy</span>
                 </div>
-              ))}
-            </div>
+                <ExternalLink className="w-3 h-3 text-white/15 group-hover:text-accent-orange transition-colors shrink-0" />
+              </Link>
 
-            <div className="h-px bg-white/[0.06]" />
+              {/* Details */}
+              <div className="p-4 space-y-3 border-b border-white/[0.06]">
+                <div className="text-[10px] font-mono text-white/20 uppercase tracking-wider">Details</div>
+                {[
+                  { label: "Language", value: "Rust 1.85+" },
+                  { label: "License", value: "MIT" },
+                  { label: "Encryption", value: "AES-256-GCM" },
+                  { label: "KDF", value: "Argon2id" },
+                  { label: "Storage", value: "SQLCipher" },
+                  { label: "Status", value: "Active" },
+                ].map(({ label, value }) => (
+                  <div key={label} className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono text-white/20">{label}</span>
+                    <span className="text-[11px] text-white/50 font-medium">{value}</span>
+                  </div>
+                ))}
+              </div>
 
-            {/* Install quick links */}
-            <div>
-              <div className="text-xs font-mono text-white/25 uppercase tracking-wider mb-3">Install</div>
-              <div className="space-y-2">
+              {/* Install quick links */}
+              <div className="p-4 space-y-1">
+                <div className="text-[10px] font-mono text-white/20 uppercase tracking-wider mb-3">Install</div>
                 {[
                   { label: "Homebrew", icon: Package },
                   { label: "npm / npx", icon: Code2 },
@@ -370,16 +362,15 @@ export default function EnvyPage() {
                   <button
                     key={label}
                     onClick={() => setActiveTab("Install")}
-                    className="flex items-center gap-2 w-full text-sm text-white/30 hover:text-white/60 transition-colors duration-200"
+                    className="flex items-center gap-2 w-full px-2 py-1.5 rounded-lg text-sm text-white/30 hover:text-white/70 hover:bg-white/[0.04] transition-all duration-200"
                   >
-                    <Icon className="w-3.5 h-3.5 text-white/20" />
+                    <Icon className="w-3.5 h-3.5 text-white/20 shrink-0" />
                     {label}
-                    <ArrowRight className="w-3 h-3 ml-auto opacity-0 group-hover:opacity-100" />
                   </button>
                 ))}
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
       </div>
