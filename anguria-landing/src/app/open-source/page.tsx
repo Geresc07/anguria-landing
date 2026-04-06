@@ -196,7 +196,7 @@ export default function EnvyPage() {
 
 
       {/* Content */}
-      <div className="max-w-screen-xl mx-auto px-6 md:px-8 pb-10">
+      <div className="max-w-screen-xl mx-auto px-6 md:px-8 pt-6 md:pt-0 pb-10">
         <div className="flex flex-col-reverse md:flex-row gap-8 md:gap-10">
 
           {/* Main */}
